@@ -33,8 +33,8 @@ ret1, binary = cv2.threshold(grey, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 #plt.show()
 
 # Step 2: Segmentation
-n = 1 or 2
-labels = measure.label(binary, n)
+#n = 1 or 2
+labels = measure.label(binary, 0)
 #print(labels.max())
 # labels finds all the connected components 
 #plt.imshow(labels, cmap='nipy_spectral')
@@ -61,6 +61,16 @@ for region in features:
     if minor > 0:   # avoid division by zero
         ratio = major / minor
         ratios.append(ratio)
+
+oval_count = 0
+round_count = 0
+for ratio in ratios:
+    if ratio > 1.5:
+        oval_count+=1
+    else:
+        round_count+=1
+
+print(f"{oval_count} oval pills and {round_count} round pills")
 
 plt.hist(ratios, bins=10)
 plt.xlabel("Major/Minor Axis Length Ratio")
