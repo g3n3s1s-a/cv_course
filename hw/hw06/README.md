@@ -1,6 +1,8 @@
 # homework 06
+
 ## forward warping results
 <img width="870" height="356" alt="Screenshot 2026-03-16 at 11 52 53 PM" src="https://github.com/user-attachments/assets/91c351d5-563b-4f76-ba97-510df7aa79d5" />
+
 ## inverse warping results
 <img width="866" height="358" alt="Screenshot 2026-03-16 at 11 50 47 PM" src="https://github.com/user-attachments/assets/4c0d01e4-fce3-43d4-9839-051baed118dd" />
 
