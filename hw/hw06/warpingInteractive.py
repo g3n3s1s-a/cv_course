@@ -31,8 +31,8 @@ for y_source in range(0, rows):
         sourcePX = np.float32([[x_source], [y_source], [1]])
 
         # *** The following line requires modification if you want to implement the "inverse warping":
-        #destPX = np.linalg.inv(H_mat) @ sourcePX
-        destPX = H_mat @ sourcePX
+        destPX = np.linalg.inv(H_mat) @ sourcePX
+        #destPX = H_mat @ sourcePX
 
         x_dest = int(destPX[0,0]/destPX[2,0])
         y_dest = int(destPX[1,0]/destPX[2,0])
@@ -41,8 +41,8 @@ for y_source in range(0, rows):
             count = count + 1
 
             # *** The following line requires modification if you want to implement the "inverse warping":
-            #I_transformed[y_source, x_source, :] = I[y_dest, x_dest, :]
-            I_transformed[y_dest, x_dest, :] = I[y_source, x_source, :]
+            I_transformed[y_source, x_source, :] = I[y_dest, x_dest, :]
+            #I_transformed[y_dest, x_dest, :] = I[y_source, x_source, :]
 
 I_correct_xformed = cv2.warpPerspective(I, H_mat, (cols, rows), flags=cv2.INTER_NEAREST)
 
